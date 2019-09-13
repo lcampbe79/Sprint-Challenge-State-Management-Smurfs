@@ -53,7 +53,7 @@ const SmurfForm = props => {
           type="text"
           name="height"
           placeholder="smurf height"
-          value={smurf.height}
+          value={smurf.height} 
           onChange={changeHandler}
         />
 
