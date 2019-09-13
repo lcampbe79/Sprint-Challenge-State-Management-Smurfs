@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import {getSmurfs} from '../store/actions/index.js'
+import { Card } from 'semantic-ui-react'
 
 const Smurfs = ({getSmurfs, smurfs}) =>{
   useEffect(() => {
@@ -8,16 +9,19 @@ const Smurfs = ({getSmurfs, smurfs}) =>{
   },[getSmurfs])
   console.log(smurfs)
   return(
-    <div>
+    <div className='smurfCard'>
       {smurfs.map(smurf => {
         return(
-          <div key={smurf.id}>
-            <h4>{smurf.name}</h4>
-            <h4>{smurf.age}</h4>
-            <h4>{smurf.height}</h4>
-          </div>
-        )
-     
+        <Card key={smurf.id}>
+          <Card.Content>
+            <Card.Header>{smurf.name}</Card.Header>
+            <Card.Meta>{smurf.age}</Card.Meta>
+            <Card.Description>
+            {smurf.height}
+            </Card.Description>
+          </Card.Content>
+        </Card>
+        ) 
       })}
     
     </div>

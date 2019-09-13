@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { reducer } from './store/reducers';
 import "./index.css";
+import 'semantic-ui-css/semantic.min.css';
+
 import App from "./components/App";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
