@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import { connect } from 'react-redux';
+import {addSmurf} from '../store/actions/index.js'
+import {getSmurfs} from '../store/actions/index.js'
 
 const SmurfForm = props => {
   // console.log(props);
@@ -11,6 +13,10 @@ const SmurfForm = props => {
     setSmurf({ ...smurf, [event.target.name]: event.target.value });
   };
 
+  useEffect(() => {
+    getSmurfs();
+  },[])
+
   const submitForm = event => {
     event.preventDefault();
     const newSmurf = {
@@ -19,6 +25,7 @@ const SmurfForm = props => {
     };
     // console.log(newSmurf)
     props.addSmurf(newSmurf);
+    setSmurf({ name: "", age: "", height: "" })
   };
 
   return (
@@ -55,5 +62,11 @@ const SmurfForm = props => {
   );
 };
 
+const mapStateToProps = state => {
+  return {
+    
 
-export default SmurfForm;
+  }
+}
+
+export default connect(mapStateToProps, {addSmurf})(SmurfForm);

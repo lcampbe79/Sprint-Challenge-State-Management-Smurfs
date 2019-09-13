@@ -11,7 +11,11 @@ const Smurfs = ({getSmurfs, smurfs}) =>{
     <div>
       {smurfs.map(smurf => {
         return(
-          <div>{smurf.name}</div>
+          <div key={smurf.id}>
+            <h4>{smurf.name}</h4>
+            <h4>{smurf.age}</h4>
+            <h4>{smurf.height}</h4>
+          </div>
         )
      
       })}

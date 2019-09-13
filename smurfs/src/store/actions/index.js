@@ -18,12 +18,12 @@ export const getSmurfs = () => dispatch => {
   })
 }
 
-export const addSmurf = (newSmurf) => {
+export const addSmurf = (newSmurf) => dispatch => {
   // console.log("hi")
   axios.post('http://localhost:3333/smurfs', newSmurf)
   .then(res =>{
     console.log(res)
-    // dispatch({type:FETCHING_MESSAGE_SUCCESS, payload: res.data.message})
+     dispatch({type:FETCHING_MESSAGE_SUCCESS, payload: res.data})
   })
   .catch(err => {
     console.log(err.toString())
